@@ -1,0 +1,64 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build directories
+dist/
+build/
+*.egg-info/
+
+# Docker
+.dockerignore
+docker-compose*.yml
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+.tmp/
+tmp/
+
+# Documentation
+docs/
+# README.md
+CHANGELOG.md
+LICENSE
+
+# Test data
+images/
+
+# Project directories
+tests/
+src/pipelines/
+src/infrastructure/supabase/
+# uv.lock
+pre-commit-config.yaml
+# pyproject.toml
+.python-version
+MEMORY.md

@@ -1,0 +1,7 @@
+{
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.defaultProfile.windows": "",
+    "cSpell.words": [
+        "fastapi"
+    ]
+}

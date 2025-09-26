@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+  push:
+
+    branches:
+      # - main
+      - develop
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    env:
+      # Supabase secrets
+      SUPABASE_DB__TABLE_NAME: ${{ secrets.SUPABASE_DB__TABLE_NAME }}
+      SUPABASE_DB__HOST: ${{ secrets.SUPABASE_DB__HOST }}
+      SUPABASE_DB__NAME: ${{ secrets.SUPABASE_DB__NAME }}
+      SUPABASE_DB__USER: ${{ secrets.SUPABASE_DB__USER }}
+      SUPABASE_DB__PASSWORD: ${{ secrets.SUPABASE_DB__PASSWORD }}
+      SUPABASE_DB__PORT: ${{ secrets.SUPABASE_DB__PORT }}
+
+      # Qdrant secrets
+      QDRANT__API_KEY: ${{ secrets.QDRANT__API_KEY }}
+      QDRANT__URL: ${{ secrets.QDRANT__URL }}
+      QDRANT__COLLECTION_NAME: ${{ secrets.QDRANT__COLLECTION_NAME }}
+
+      # OpenRouter secrets
+      OPENROUTER__API_KEY: ${{ secrets.OPENROUTER__API_KEY }}
+      OPENROUTER__API_URL: ${{ secrets.OPENROUTER__API_URL }}
+
+      # FastAPI secrets
+      ALLOWED_ORIGINS: ${{ secrets.ALLOWED_ORIGINS }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+
+      - name: Install dependencies
+        run: uv sync --all-groups
+
+      - name: Run pre-commit hooks
+        run: |
+          source .venv/bin/activate
+          pre-commit install
+          pre-commit run --all-files
+
+      # 🔹 Debug step: check that DB env vars are set
+      - name: Check DB environment variables
+        run: |
+          for var in SUPABASE_DB__HOST SUPABASE_DB__NAME SUPABASE_DB__USER SUPABASE_DB__PORT SUPABASE_DB__TABLE_NAME \
+                    QDRANT__API_KEY QDRANT__URL QDRANT__COLLECTION_NAME \
+                    OPENROUTER__API_KEY OPENROUTER__API_URL \
+                    ALLOWED_ORIGINS; do
+            if [ -z "${!var}" ]; then
+              echo "ERROR: $var is empty!"
+              exit 1
+            else
+              echo "$var is set"
+            fi
+          done
+
+      - name: Run tests
+        run: uv run pytest

@@ -1,0 +1,171 @@
+[project]
+name = "substack-newsletters-search-pipeline"
+version = "1.0.0"
+description = "A pipeline to retrieve Newsletters from Substack"
+readme = "README.md"
+authors = [
+    {name = "Benito Martin"}
+]
+license = {text = "MIT License"}
+requires-python = ">=3.12"
+
+dependencies = [
+    "aiohttp>=3.12.15",
+    "beautifulsoup4>=4.13.5",
+    "fastapi[standard]>=0.116.1",
+    "fastembed>=0.7.2",
+    "langchain>=0.3.27",
+    "langchain-text-splitters>=0.3.9",
+    "loguru>=0.7.3",
+    "lxml>=5.4.0",
+    "openai>=1.103.0",
+    "opik>=1.8.29",
+    "prefect>=3.4.14",
+    "psutil>=7.0.0",
+    "psycopg2-binary>=2.9.10",
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
+    "qdrant-client>=1.15.1",
+    "sqlalchemy>=2.0.43",
+    "supabase>=2.18.1",
+    "uvloop>=0.21.0",
+    "gradio>=5.45.0",
+    "markdown>=3.9",
+    "python-dotenv>=1.1.1",
+    "markdownify>=1.2.0",
+    "prefect-github>=0.3.1",
+    "requests>=2.32.5",
+]
+
+# [[tool.uv.index]]
+# name = "pytorch-cpu"
+# url = "https://download.pytorch.org/whl/cpu"
+# explicit = true
+
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+]
+lint = [
+    "mypy>=1.17.1",
+    "ruff>=0.12.10",
+    "types-markdown>=3.9.0.20250906",
+    "types-python-dateutil>=2.9.0.20250822",
+    "types-pyyaml>=6.0.12.20250822",
+    "types-requests>=2.32.4.20250809",
+]
+test = [
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "responses>=0.25.8",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+packages = ["src"]
+
+######################################
+# --- Linting & Formatting Tools --- #
+######################################
+
+[tool.ruff]
+# Assume Python 3.12
+target-version = "py312"
+
+# Same as Black.
+line-length = 100
+indent-width = 4
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".git-rewrite",
+  ".hg",
+  ".mypy_cache",
+  ".nox",
+  ".pants.d",
+  ".pytype",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "node_modules",
+  "venv",
+]
+
+# Whether to show an enumeration of all fixed lint violations
+show-fixes = true
+
+# Enable common lint rules.
+lint.select = [
+  "B",    # flake8-bugbear
+  "E",    # pycodestyle
+  "F",    # Pyflakes1
+  "I",    # isort
+  "SIM",  # similarity
+  "UP",   # pyupgrade
+  "D102", # docstring method
+  "D103", # docstring function
+  "D414", # docstring missing section
+  "D419", # empty docstring
+#   "D101", # docstring missing class
+]
+
+lint.ignore = []
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+lint.fixable = ["ALL"]
+lint.unfixable = []
+
+[tool.ruff.lint.mccabe]
+# Maximum allowed McCabe complexity.
+max-complexity = 10
+
+
+#########################
+# --- Static Typing --- #
+#########################
+
+[tool.mypy]
+# Use `packages` to specify the package root
+packages = ["src"]
+explicit_package_bases = true
+
+# All other configurations
+ignore_missing_imports = true
+disallow_untyped_defs = false
+check_untyped_defs = true
+# warn_redundant_casts = true
+warn_unused_ignores = false
+warn_return_any = false
+strict_optional = true
+
+# [tool.mypy]
+# # Only check src directory, with src as the package root
+# files = ["src"]  # Check from project root instead of just src
+# mypy_path = ["src"]  # Set mypy path to project root
+
+#########################
+# --- Testing Tools --- #
+#########################
+
+[tool.pytest.ini_options]
+testpaths = [ "tests" ]
+python_files = [ "test_*.py" ]
+addopts = "-ra -v -s"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning"
+]

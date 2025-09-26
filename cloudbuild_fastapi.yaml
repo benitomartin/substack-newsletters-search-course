@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      export DOCKER_BUILDKIT=1
+      docker build -t gcr.io/${PROJECT_ID}/${_SERVICE_NAME} -f Dockerfile .
+substitutions:
+  _SERVICE_NAME: "substack-pipeline-fastapi"
+images:
+  - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"

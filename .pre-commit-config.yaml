@@ -1,0 +1,67 @@
+repos:
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    # uv version.
+    rev: 0.8.17
+    hooks:
+      # Update the uv lockfile
+      - id: uv-lock
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ['--maxkb=20000']
+      - id: check-toml
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-json
+      - id: detect-private-key
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.18.1
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          - types-pyyaml>=6.0.12.20250822
+          - types-requests>=2.32.4.20250809
+          - types-python-dateutil>=2.9.0.20250822
+          - types-markdown>=3.9.0.20250906
+        args: ["--config-file=pyproject.toml"]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.13.0
+    hooks:
+    - id: ruff-check
+      args:
+        [
+          --fix,
+          --exit-non-zero-on-fix,
+          --show-fixes
+          ]
+    - id: ruff-format
+
+  - repo: https://github.com/hukkin/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
+        additional_dependencies:
+        - mdformat-gfm
+        exclude: ^team_data/
+
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks
+
+
+  # - repo: local
+  #   hooks:
+  #     - id: pytest
+  #       name: pytest
+  #       entry: pytest
+  #       language: system
+  #       types: [python]
+  #       pass_filenames: false

@@ -1,0 +1,53 @@
+pull:
+- prefect.deployments.steps.git_clone:
+    id: clone-step
+    repository: https://github.com/benitomartin/substack-newsletters-search-pipeline
+    credentials: "{{ prefect.blocks.github-credentials.my-gh-creds }}"
+
+# This function ensures pip is installed in the environment (Only needed for Prefect Server)
+- prefect.deployments.steps.run_shell_script:
+    id: install-pip
+    directory: "{{ clone-step.directory }}"
+    script: |
+      python -m ensurepip --upgrade
+
+- prefect.deployments.steps.pip_install_requirements:
+    directory: "{{ clone-step.directory }}"
+    requirements_file: requirements.txt
+    stream_output: true
+
+deployments:
+  - name: rss-ingest
+    entrypoint: src/pipelines/flows/rss_ingestion_flow.py:rss_ingest_flow
+    work_pool:
+      name: default-work-pool
+      job_variables:
+        env:
+          SUPABASE_DB__TABLE_NAME: "{{ prefect.blocks.secret.supabase-db--table-name }}"
+          SUPABASE_DB__HOST: "{{ prefect.blocks.secret.supabase-db--host }}"
+          SUPABASE_DB__NAME: "{{ prefect.blocks.secret.supabase-db--name }}"
+          SUPABASE_DB__USER: "{{ prefect.blocks.secret.supabase-db--user }}"
+          SUPABASE_DB__PASSWORD: "{{ prefect.blocks.secret.supabase-db--password }}"
+          SUPABASE_DB__PORT: "{{ prefect.blocks.secret.supabase-db--port }}"
+
+    schedule:
+      cron: "0 0 * * 7"
+
+  - name: qdrant-embeddings
+    entrypoint: src/pipelines/flows/embeddings_ingestion_flow.py:qdrant_ingest_flow
+    work_pool:
+      name: default-work-pool
+      job_variables:
+        env:
+          SUPABASE_DB__TABLE_NAME: "{{ prefect.blocks.secret.supabase-db--table-name }}"
+          SUPABASE_DB__HOST: "{{ prefect.blocks.secret.supabase-db--host }}"
+          SUPABASE_DB__NAME: "{{ prefect.blocks.secret.supabase-db--name }}"
+          SUPABASE_DB__USER: "{{ prefect.blocks.secret.supabase-db--user }}"
+          SUPABASE_DB__PASSWORD: "{{ prefect.blocks.secret.supabase-db--password }}"
+          SUPABASE_DB__PORT: "{{ prefect.blocks.secret.supabase-db--port }}"
+          QDRANT__API_KEY: "{{ prefect.blocks.secret.qdrant--api-key }}"
+          QDRANT__URL: "{{ prefect.blocks.secret.qdrant--url }}"
+          QDRANT__COLLECTION_NAME: "{{ prefect.blocks.secret.qdrant--collection-name }}"
+
+    schedule:
+      cron: "0 0 * * 7"

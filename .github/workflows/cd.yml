@@ -1,0 +1,32 @@
+name: CD
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      # - main
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+
+      - name: Run Prefect Deploy
+        uses: PrefectHQ/actions-prefect-deploy@v4
+        with:
+          all-deployments: "true"  # deploy all deployments in prefect.yaml
+          requirements-file-paths: ./requirements.txt
+          deployment-file-path: ./prefect-cloud.yaml
+        env:
+          PREFECT_API_KEY: ${{ secrets.PREFECT__API_KEY }}
+          PREFECT_WORKSPACE: ${{ secrets.PREFECT__WORKSPACE }}
+          PREFECT_API_URL: ${{ secrets.PREFECT__API_URL }}
