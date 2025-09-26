@@ -31,6 +31,10 @@ jobs:
       OPENROUTER__API_KEY: ${{ secrets.OPENROUTER__API_KEY }}
       OPENROUTER__API_URL: ${{ secrets.OPENROUTER__API_URL }}
 
+      # OPIK secrets
+      OPIK__API_KEY: ${{ secrets.OPIK__API_KEY }}
+      OPIK__PROJECT_NAME: ${{ secrets.OPIK__PROJECT_NAME }}
+
       # FastAPI secrets
       ALLOWED_ORIGINS: ${{ secrets.ALLOWED_ORIGINS }}
 
