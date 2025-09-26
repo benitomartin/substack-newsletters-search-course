@@ -32,20 +32,20 @@
 - [Substack Articles Search Engine](#substack-articles-search-engine)
   - [📚 Table of Contents](#-table-of-contents)
   - [✨ Overview](#-overview)
-  - [🗂️ Project Structure](#%EF%B8%8F-project-structure)
+  - [🗂️ Project Structure](#️-project-structure)
   - [⚡ Quickstart](#-quickstart)
-    - [🛠️ Prerequisites](#%EF%B8%8F-prerequisites)
-    - [⬇️ Installation](#%EF%B8%8F-installation)
+    - [🛠️ Prerequisites](#️-prerequisites)
+    - [⬇️ Installation](#️-installation)
   - [📝 Makefile Commands](#-makefile-commands)
-  - [⚙️ Settings & Configuration](#%EF%B8%8F-settings--configuration)
+  - [⚙️ Settings \& Configuration](#️-settings--configuration)
     - [🔢 Embedding Models](#-embedding-models)
   - [🔌 Services Providers](#-services-providers)
-    - [🗄️ Supabase](#%EF%B8%8F-supabase)
+    - [🗄️ Supabase](#️-supabase)
     - [🧠 Qdrant](#-qdrant)
     - [⚡ Prefect](#-prefect)
     - [⚡ FastAPI](#-fastapi)
       - [Example Queries](#example-queries)
-    - [☁️ Google Cloud Run](#%EF%B8%8F-google-cloud-run)
+    - [☁️ Google Cloud Run](#️-google-cloud-run)
     - [🎨 Gradio UI (Optional)](#-gradio-ui-optional)
     - [🤖 Opik Integration (Optional)](#-opik-integration-optional)
   - [🧪 Tests](#-tests)
@@ -202,7 +202,7 @@ Clone the repository, install dependencies, and set up your environment variable
 
 ```bash
 git clone https://github.com/benitomartin/substack-newsletters-search-pipeline.git
-cd substack-rss-pipeline
+cd substack-newsletters-search-pipeline
 uv sync --all-groups
 source .venv/bin/activate
 cp .env.example .env
