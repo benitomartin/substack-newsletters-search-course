@@ -1,9 +1,11 @@
 # Substack Articles Search Engine
 
 ![React UI](static/react_app.png)
+
 <div align="center">
 
 <!-- Project Status -->
+
 [![Build Status](https://github.com/benitomartin/substack-rss-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/benitomartin/substack-rss-pipeline/actions/workflows/ci.yml)
 [![Build Status](https://github.com/benitomartin/substack-rss-pipeline/actions/workflows/cd.yml/badge.svg)](https://github.com/benitomartin/substack-rss-pipeline/actions/workflows/cd.yml)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
@@ -13,10 +15,12 @@
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 
 <!-- Providers -->
+
 [![Supabase](https://img.shields.io/badge/Supabase-2.18.1-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
 [![Qdrant](https://img.shields.io/badge/Qdrant-1.15.1-5A31F4?logo=qdrant&logoColor=white)](https://qdrant.tech/)
 [![Prefect](https://img.shields.io/badge/Prefect-3.4.17-FF4300?logo=prefect&logoColor=white)](https://www.prefect.io/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.116.1-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+
 </div>
 
 <p align="center">
@@ -28,20 +32,20 @@
 - [Substack Articles Search Engine](#substack-articles-search-engine)
   - [📚 Table of Contents](#-table-of-contents)
   - [✨ Overview](#-overview)
-  - [🗂️ Project Structure](#️-project-structure)
+  - [🗂️ Project Structure](#%EF%B8%8F-project-structure)
   - [⚡ Quickstart](#-quickstart)
-    - [🛠️ Prerequisites](#️-prerequisites)
-    - [⬇️ Installation](#️-installation)
+    - [🛠️ Prerequisites](#%EF%B8%8F-prerequisites)
+    - [⬇️ Installation](#%EF%B8%8F-installation)
   - [📝 Makefile Commands](#-makefile-commands)
-  - [⚙️ Settings \& Configuration](#️-settings--configuration)
+  - [⚙️ Settings & Configuration](#%EF%B8%8F-settings--configuration)
     - [🔢 Embedding Models](#-embedding-models)
   - [🔌 Services Providers](#-services-providers)
-    - [🗄️ Supabase](#️-supabase)
+    - [🗄️ Supabase](#%EF%B8%8F-supabase)
     - [🧠 Qdrant](#-qdrant)
     - [⚡ Prefect](#-prefect)
     - [⚡ FastAPI](#-fastapi)
       - [Example Queries](#example-queries)
-    - [☁️ Google Cloud Run](#️-google-cloud-run)
+    - [☁️ Google Cloud Run](#%EF%B8%8F-google-cloud-run)
     - [🎨 Gradio UI (Optional)](#-gradio-ui-optional)
     - [🤖 Opik Integration (Optional)](#-opik-integration-optional)
   - [🧪 Tests](#-tests)
@@ -361,7 +365,7 @@ After bulk uploading data, make sure you run `make create-qdrant-indexes` to ena
 Prefect is used for workflow orchestration, ensuring that data ingestion, and embedding generation are reliable and repeatable. Three main flows are provided:
 
 1. **RSS Ingestion Flow**: Fetches the latest articles from RSS feeds and stores them in Supabase.
-2. **Qdrant Embeddings Flow**: Generates and stores vector embeddings for all articles, making them searchable via semantic queries.
+1. **Qdrant Embeddings Flow**: Generates and stores vector embeddings for all articles, making them searchable via semantic queries.
 
 Required settings in your `.env` file:
 
