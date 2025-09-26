@@ -7,7 +7,8 @@ pull:
 - prefect.deployments.steps.run_shell_script:
     id: install-build-tools
     script: |
-      apt-get update && apt-get install -y --no-install-recommends g++ build-essential
+      apt-get update -y
+      apt-get install -y --no-install-recommends build-essential g++
 
 - prefect.deployments.steps.pip_install_requirements:
     directory: "{{ clone-step.directory }}"
