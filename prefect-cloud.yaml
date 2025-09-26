@@ -4,6 +4,11 @@ pull:
     repository: https://github.com/benitomartin/substack-newsletters-search-pipeline
     credentials: "{{ prefect.blocks.github-credentials.my-gh-creds }}"
 
+- prefect.deployments.steps.run_shell_script:
+    id: install-build-tools
+    script: |
+      apt-get update && apt-get install -y --no-install-recommends g++ build-essential
+
 - prefect.deployments.steps.pip_install_requirements:
     directory: "{{ clone-step.directory }}"
     requirements_file: requirements.txt
