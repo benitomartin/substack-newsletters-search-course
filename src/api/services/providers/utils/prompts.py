@@ -3,8 +3,6 @@ import opik
 from src.api.models.api_models import SearchResult
 from src.api.models.provider_models import ModelConfig
 
-opik.configure()
-client = opik.Opik()
 config = ModelConfig()
 
 PROMPT = """
@@ -35,7 +33,7 @@ that is retrieved from a vector database without relying on outside knowledge or
 
 
 # Create a new prompt
-prompt = client.create_prompt(
+prompt = opik.Prompt(
     name="substack_research_assistant", prompt=PROMPT, metadata={"environment": "development"}
 )
 
