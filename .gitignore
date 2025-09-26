@@ -212,3 +212,4 @@ src/pipelines/flows/backfilling_archive_flow.py
 src/pipelines/tasks/fetch_archive.py
 src/pipelines/tasks/ingest_archive.py
 src/pipelines/tasks/parse_archive.py
+src/configs/feeds_archive.yaml
