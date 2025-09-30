@@ -6,10 +6,10 @@
 
 <!-- Project Status -->
 
-[![Build Status](https://github.com/benitomartin/substack-rss-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/benitomartin/substack-rss-pipeline/actions/workflows/ci.yml)
-[![Build Status](https://github.com/benitomartin/substack-rss-pipeline/actions/workflows/cd.yml/badge.svg)](https://github.com/benitomartin/substack-rss-pipeline/actions/workflows/cd.yml)
+[![Build Status](https://github.com/benitomartin/substack-newsletters-search-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/benitomartin/substack-newsletters-search-pipeline/actions/workflows/ci.yml)
+[![Build Status](https://github.com/benitomartin/substack-newsletters-search-pipeline/actions/workflows/cd.yml/badge.svg)](https://github.com/benitomartin/substack-newsletters-search-pipeline/actions/workflows/cd.yml)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/benitomartin/substack-rss-pipeline)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/benitomartin/substack-newsletters-search-pipeline)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python version](https://img.shields.io/badge/python-3.12.8-blue.svg)](https://www.python.org/downloads/)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
