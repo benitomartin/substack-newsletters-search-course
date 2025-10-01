@@ -2,7 +2,7 @@
 
 ## 1.0.0
 
-Released on September 16, 2024.
+Released on September 30, 2025.
 
 ### Added
 
