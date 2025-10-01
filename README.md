@@ -1,6 +1,6 @@
 # Substack Articles Search Engine
 
-![React UI](static/react_app.png)
+![Gradio UI](static/gradio_app.png)
 
 <div align="center">
 
@@ -65,7 +65,7 @@ The backend is powered by a FastAPI application that exposes a set of RESTful en
 
 Multiple LLM providers are supported, including OpenRouter (default, with a generous free tier), OpenAI, and Hugging Face. For OpenAI and Hugging Face, you will need to supply your own API keys.
 
-For user interaction, this repository includes a Gradio-based UI for local exploration and prototyping. For production use, a React-based UI is available at [https://substack.martindatasol.com/](https://substack.martindatasol.com/) and the code can be found in the [substack-search-ui](https://github.com/benitomartin/substack-search-ui) repository.
+For user interaction, this repository includes a Gradio-based UI for local exploration and prototyping.
 
 ## 🗂️ Project Structure
 
