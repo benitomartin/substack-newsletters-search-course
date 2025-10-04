@@ -394,7 +394,7 @@ Run the flow with date arguments:
 make ingest-embeddings-flow FROM_DATE=2023-01-01
 ```
 
-To deploy flows to Prefect Cloud or your own Prefect server, run the following commands:
+To deploy flows to Prefect Cloud or your own Prefect server, run the following commands, Then you can run the flows from the Prefect UI or CLI:
 
 ```bash
 make deploy-cloud-flows
@@ -430,6 +430,26 @@ You must create the necessary secrets in Prefect for database and Qdrant access 
 | supabase-db--password   | Supabase DB Password Secret           |
 | supabase-db--port       | Supabase DB Port Secret               |
 | supabase-db--user       | Supabase DB User Secret               |
+
+If you to to trigger the flows from the CLI instead of the UI, you can use the following commands:
+
+```bash
+prefect deploy src/pipelines/flows/rss_ingestion_flow.py:rss_ingest_flow -n rss_ingest_flow
+
+prefect deployment run 'rss_ingest_flow/rss_ingest_flow'
+```
+
+```bash
+prefect deploy src/pipelines/flows/embeddings_ingestion_flow.py:qdrant_ingest_flow -n qdrant_ingest_flow
+
+prefect deployment run 'qdrant_ingest_flow/qdrant_ingest_flow' --param from_date="2022-01-01"
+```
+
+```bash
+prefect deploy src/pipelines/flows/backfilling_archive_flow.py:backfilling_ingest_flow -n backfilling_ingest_flow
+
+prefect deployment run 'backfilling_ingest_flow/backfilling_ingest_flow' --param cutoff_date="2022-01-01"
+```
 
 ### ⚡ FastAPI
 
