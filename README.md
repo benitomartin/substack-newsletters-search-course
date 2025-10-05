@@ -275,7 +275,7 @@ Edit the following files to configure your deployment:
 - **Project Settings**: `src/configs/settings.py`
   - **Necessary**: Qdrant, Supabase, Prefect, OpenRouter
   - **Optional**:
-    - From the above optional services listed above Google Cloud Run is configured in the CLI, so no need to set anything here. Gradio does not require any settings and Opik integration requires only the `OPENAI_API_KEY`, that can be set in the `.env` file.
+    - From the above optional services listed above Google Cloud Run is configured in the CLI, so no need to set anything here. Gradio does not require any settings and Opik integration requires only the `OPENAI_API_KEY`, which can be set in the `.env` file.
     - See below for details on enabling Jina or Hugging Face embeddings if desired.
 - **Newsletters Feeds**: `src/configs/config.yaml`
 
@@ -283,7 +283,7 @@ Edit the following files to configure your deployment:
 
 The default embedding backend is [Fastembed](https://qdrant.github.io/fastembed/examples/Supported_Models/#supported-text-embedding-models) with the "BAAI/bge-base-en-v1.5" model, providing high-quality English text embeddings. You can easily swap in other supported models by updating the `QDRANT__DENSE_MODEL_NAME` variable in your `.env` file and in `src/configs/settings.py`.
 
-The code enable Jina or Hugging Face embeddings. To do so, set `use_jina` or `use_hf` to `True` in the `AsyncQdrantVectorStore` class (`src/infrastructure/vectorstores/qdrant_vectorstore.py`) and provide the necessary API keys and model names in the configuration files. This flexibility allows you to experiment with different embedding providers and optimize for your use case. By setting `True` the rest of the code does not need to be changed.
+The code enables Jina or Hugging Face embeddings. To do so, set `use_jina` or `use_hf` to `True` in the `AsyncQdrantVectorStore` class (`src/infrastructure/vectorstores/qdrant_vectorstore.py`) and provide the necessary API keys and model names in the configuration files. This flexibility allows you to experiment with different embedding providers and optimize for your use case. By setting `True`, the rest of the code does not need to be changed.
 
 ```bash
 # -------------------------------
@@ -322,7 +322,7 @@ ______________________________________________________________________
 
 ### 🗄️ Supabase
 
-Supabase acts as the primary relational database, storing all ingested article metadata and content. You must create a Supabase project and update your `.env` file with the connection details. The free tier is sufficient for the current set up (only 10% capacity usage).
+Supabase acts as the primary relational database, storing all ingested article metadata and content. You must create a Supabase project and update your `.env` file with the connection details. The free tier is sufficient for the current setup (only 10% capacity usage).
 
 ```bash
 SUPABASE_DB__TABLE_NAME=substack_articles
@@ -351,7 +351,7 @@ QDRANT__API_KEY=your_qdrant_api_key_here
 QDRANT__URL=your_qdrant_url_here
 ```
 
-Use the provided Makefile commands to create/delete, index, and manage your Qdrant collections. The ingest from SQL command will bulk upload all articles from Supabase to Qdrant without using Prefect.
+Use the provided Makefile commands to create/delete, index, and manage your Qdrant collections. The ingestion from SQL command will bulk upload all articles from Supabase to Qdrant without using Prefect.
 
 ```bash
 make create-qdrant-collection
@@ -364,7 +364,7 @@ After bulk uploading data, make sure you run `make create-qdrant-indexes` to ena
 
 ### ⚡ Prefect
 
-Prefect is used for workflow orchestration, ensuring that data ingestion, and embedding generation are reliable and repeatable. Three main flows are provided:
+Prefect is used for workflow orchestration, ensuring that data ingestion and embedding generation are reliable and repeatable. Three main flows are provided:
 
 1. **RSS Ingestion Flow**: Fetches the latest articles from RSS feeds and stores them in Supabase.
 1. **Qdrant Embeddings Flow**: Generates and stores vector embeddings for all articles, making them searchable via semantic queries.
@@ -394,14 +394,14 @@ Run the flow with date arguments:
 make ingest-embeddings-flow FROM_DATE=2023-01-01
 ```
 
-To deploy flows to Prefect Cloud or your own Prefect server, run the following commands, Then you can run the flows from the Prefect UI or CLI:
+To deploy flows to Prefect Cloud or your own Prefect server, run the following commands. Then you can run the flows from the Prefect UI or CLI:
 
 ```bash
 make deploy-cloud-flows
 make deploy-local-flows
 ```
 
-Make sure you are logged into Prefect Cloud or your local Prefect server before deploying and your prefect CLI is configured to use the correct profile.
+Make sure you are logged into Prefect Cloud or your local Prefect server before deploying, and your prefect CLI is configured to use the correct profile.
 
 Cloud:
 
@@ -445,15 +445,9 @@ prefect deploy src/pipelines/flows/embeddings_ingestion_flow.py:qdrant_ingest_fl
 prefect deployment run 'qdrant_ingest_flow/qdrant_ingest_flow' --param from_date="2022-01-01"
 ```
 
-```bash
-prefect deploy src/pipelines/flows/backfilling_archive_flow.py:backfilling_ingest_flow -n backfilling_ingest_flow
-
-prefect deployment run 'backfilling_ingest_flow/backfilling_ingest_flow' --param cutoff_date="2022-01-01"
-```
-
 ### ⚡ FastAPI
 
-The FastAPI backend exposes high-performance REST API for searching and querying your Substack article corpus. It supports both traditional keyword-based search and advanced LLM-powered question answering. The API is designed for easy integration with custom UIs, automation scripts, or third-party tools.
+The FastAPI backend exposes a high-performance REST API for searching and querying your Substack article corpus. It supports both traditional keyword-based search and advanced LLM-powered question answering. The API is designed for easy integration with custom UIs, automation scripts, or third-party tools.
 
 Supported LLM providers:
 
@@ -536,7 +530,7 @@ Additionally, in the evaluation script, you must enable the OpenAI Key by commen
 settings.openai.api_key = None
 ```
 
-The integration does not support at the moment Hugging Face. If you want to use it, please use OpenRouter or OpenAI as provider or check other possibilities in the [Opik integration documentation](https://www.comet.com/docs/opik/tracing/integrations/overview).
+The integration does not support at the moment Hugging Face. If you want to use it, please use OpenRouter or OpenAI as a provider or check other possibilities in the [Opik integration documentation](https://www.comet.com/docs/opik/tracing/integrations/overview).
 
 ## 🧪 Tests
 
