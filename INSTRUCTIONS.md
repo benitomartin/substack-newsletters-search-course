@@ -21,12 +21,12 @@
 [![Cloud Run](https://img.shields.io/badge/Google%20Cloud%20Run-4285F4?logo=googlecloud&logoColor=white)](https://cloud.google.com/run)
 [![Prefect](https://img.shields.io/badge/Prefect-3.4.17-FF4300?logo=prefect&logoColor=white)](https://www.prefect.io/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.116.1-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-
+[![Gradio](https://img.shields.io/badge/Gradio-5.45.0-FF4B4B?logo=gradio&logoColor=white)](https://gradio.app/)
 
 </div>
 
 <p align="center">
-  <em>A RAG application for searching articles and getting answers on relevant topics from Substack newsletters</em>
+  <em>A RAG application for searching articles and getting answers on relevant topics from your favorites Substack newsletters</em>
 </p>
 
 ## 📚 Table of Contents
