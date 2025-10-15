@@ -50,7 +50,7 @@
   <tr>
     <td align="center"><img src="https://github.com/benitomartin.png" width="100" style="border-radius:50%;"/></td>
     <td>
-      <strong>Benito Martín | AI / ML Engineer </strong><br />
+      <strong>Benito Martin | AI / ML Engineer </strong><br />
       <a href="https://www.linkedin.com/in/benitomartin/">LinkedIn</a><br />
       <a href="https://aiechoes.substack.com/">AI Echoes Newsletter</a><br />
     </td>
