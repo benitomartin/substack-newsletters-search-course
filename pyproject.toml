@@ -1,5 +1,5 @@
 [project]
-name = "substack-newsletters-search-pipeline"
+name = "substack-newsletters-search-course"
 version = "1.0.0"
 description = "A pipeline to retrieve Newsletters from Substack"
 readme = "README.md"
@@ -46,6 +46,9 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pre-commit>=4.3.0",
+    "types-python-dateutil>=2.9.0.20250822",
+    "types-pyyaml>=6.0.12.20250822",
+    "types-requests>=2.32.4.20250809",
 ]
 lint = [
     "mypy>=1.17.1",

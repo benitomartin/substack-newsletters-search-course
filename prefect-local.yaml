@@ -1,7 +1,7 @@
 pull:
 - prefect.deployments.steps.git_clone:
     id: clone-step
-    repository: https://github.com/benitomartin/substack-newsletters-search-pipeline
+    repository: https://github.com/benitomartin/substack-newsletters-search-course
     credentials: "{{ prefect.blocks.github-credentials.my-gh-creds }}"
 
 # This function ensures pip is installed in the environment (Only needed for Prefect Server)
