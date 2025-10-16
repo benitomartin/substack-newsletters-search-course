@@ -26,7 +26,7 @@
 </div>
 
 <p align="center">
-  <em>A RAG application for searching articles and getting answers on relevant topics from your favorites Substack newsletters</em>
+  <em>A RAG application for searching articles and getting answers on relevant topics from your favorite Substack newsletters</em>
 </p>
 
 ## 📚 Table of Contents
