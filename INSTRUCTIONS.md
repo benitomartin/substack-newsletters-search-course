@@ -272,7 +272,7 @@ All sensitive credentials, API keys, and model settings are managed via environm
 
 Edit the following files to configure your deployment:
 
-- **Project Settings**: `src/configs/settings.py`
+- **Project Settings**: `src/config.py`
   - **Necessary**: Qdrant, Supabase, Prefect, OpenRouter
   - **Optional**:
     - From the above optional services listed above Google Cloud Run is configured in the CLI, so no need to set anything here. Gradio does not require any settings and Opik integration requires only the `OPENAI_API_KEY`, which can be set in the `.env` file.
@@ -281,7 +281,7 @@ Edit the following files to configure your deployment:
 
 ### 🔢 Embedding Models
 
-The default embedding backend is [Fastembed](https://qdrant.github.io/fastembed/examples/Supported_Models/#supported-text-embedding-models) with the "BAAI/bge-base-en-v1.5" model, providing high-quality English text embeddings. You can easily swap in other supported models by updating the `QDRANT__DENSE_MODEL_NAME` variable in your `.env` file and in `src/configs/settings.py`.
+The default embedding backend is [Fastembed](https://qdrant.github.io/fastembed/examples/Supported_Models/#supported-text-embedding-models) with the "BAAI/bge-base-en-v1.5" model, providing high-quality English text embeddings. You can easily swap in other supported models by updating the `QDRANT__DENSE_MODEL_NAME` variable in your `.env` file and in `src/config.py`.
 
 The code enables Jina or Hugging Face embeddings. To do so, set `use_jina` or `use_hf` to `True` in the `AsyncQdrantVectorStore` class (`src/infrastructure/vectorstores/qdrant_vectorstore.py`) and provide the necessary API keys and model names in the configuration files. This flexibility allows you to experiment with different embedding providers and optimize for your use case. By setting `True`, the rest of the code does not need to be changed.
 
