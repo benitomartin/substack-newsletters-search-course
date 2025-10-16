@@ -178,7 +178,7 @@ Get started quickly by following these steps. This project is designed to be acc
 
 ### 🛠️ Prerequisites
 
-Before installation, ensure you have the following tools and accounts set up. These are required for running the pipeline, database, vector store, and UI components:
+Before installation, ensure you have the following tools and accounts set up. These are the minimum requirements for running the pipeline, database, vector store, and LLM provider:
 
 | Requirement                                      | Description           |
 | ------------------------------------------------ | --------------------- |
