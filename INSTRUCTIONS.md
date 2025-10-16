@@ -112,7 +112,7 @@ For user interaction, this repository includes a Gradio-based UI for local explo
 │   │              ├── messages.py
 │   │              └── prompts.py
 │   ├── configs/                               # List of newsletter feeds
-│   │   ├── feeds.yaml
+│   │   ├── feed_rss.yaml
 │   ├── infrastructure/                        # Infrastructure integrations
 │   │   ├── __init__.py
 │   │   ├── qdrant/                            # Qdrant vector DB integration
@@ -277,7 +277,7 @@ Edit the following files to configure your deployment:
   - **Optional**:
     - From the above optional services listed above Google Cloud Run is configured in the CLI, so no need to set anything here. Gradio does not require any settings and Opik integration requires only the `OPENAI_API_KEY`, which can be set in the `.env` file.
     - See below for details on enabling Jina or Hugging Face embeddings if desired.
-- **Newsletters Feeds**: `src/configs/config.yaml`
+- **Newsletters Feeds**: `src/configs/feed_rss.yaml`
 
 ### 🔢 Embedding Models
 
