@@ -167,7 +167,8 @@ For user interaction, this repository includes a Gradio-based UI for local explo
 ├── LICENSE                                    # Project license
 ├── Makefile                                   # Automation commands
 ├── pyproject.toml                             # Project dependencies
-├── README.md                                  # Project Readme
+├── README.md                                  # Project Overview
+├── INSTRUCTIONS.md                            # Project Installation Instructions
 ├── requirements.txt                           # Prefect deployment dependencies
 ├── uv.lock                                    # uv dependency lock file
 ```
