@@ -109,8 +109,11 @@ By the end of this course, you will have a fully functional RAG system and the s
 ## 💵 Does this course cost anything?
 
 - No, this course is completely free to access and learn from. Starring and sharing the repository is appreciated!
-- Google cloud run free tier is sufficient for deployment
-- Prefect cloud free tier is sufficient for orchestration once your flow is deployed but it is recommended to use prefect local server for development as it is unlimited.
+- Google Cloud Run monthly free tier is sufficient for deployment
+- Prefect cloud monthly free tier is sufficient for orchestration once your flow is deployed but it is recommended to use prefect local server for development as it is unlimited.
+- Supabase and Qdrant monthly free tiers are sufficient for hosting the Postgres and vector databases
+- OpenRouter daily requests on free LLM models is sufficient for LLM calls but you can also use OpenAI or Hugging Face as backup LLM providers as the project supports multiple LLM providers.
+- Any other tools used in this course like FastAPI, Docker, Gradio, or Opik are completely free to use.
 
 ## 📚 Course Outline
 
