@@ -120,7 +120,7 @@ By the end of this course, you will have a fully functional RAG system and the s
 | Lesson | Topic                                                        | Substack Article                 | Description                                             |
 |--------|--------------------------------------------------------------|--------------------------------|---------------------------------------------------------|
 | 1      | Setup, Configuration & Articles Ingestion                    | [Lesson 1](https://aiechoes.substack.com/p/building-a-substack-articles-search)          | Supabase Postgres setup and ingesting articles           |
-| 2      | Vector Embeddings & Semantic Search Infrastructure           | Live 20.10.2025         | Qdrant configuration and semantic search                 |
+| 2      | Vector Embeddings & Semantic Search Infrastructure           | Live 21.10.2025         | Qdrant configuration and semantic search                 |
 | 3      | FastAPI Backend & Multi-Provider LLM Support                 | Live 23.10.2025        | FastAPI backend, OpenRouter, OpenAI, Hugging Face        |
 | 4      | Cloud Run Deployment & Gradio UI                             | Live 28.10.2025          | Google Cloud Run deployment and Gradio UI                |
 | 5      | Video Application Overview                                                   | Live 29.10.2025                  | Video demo showcasing the entire pipeline                 |
