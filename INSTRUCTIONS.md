@@ -334,6 +334,20 @@ SUPABASE_DB__USER=your_supabase_db_user_here
 SUPABASE_DB__PASSWORD=your_supabase_db_password_here
 SUPABASE_DB__PORT=6543
 ```
+You should end up with a connection string like this:
+
+postgresql://[USER]:[YOUR-PASSWORD]@[HOST]:[PORT]/[NAME]
+
+To find the values go to you Supabase project dashboard and click on the "connect" button on the middle of the screen. you shall see the following. If you select the "Transaction Pool" method, you will get the correct host to use.
+
+[![Supabase connection details](static/supabase_string.png)](static/supabase_string.png)
+
+For example:
+
+- user: postgres.apbkobhfnmcqqzqeeqss
+- host: aws-1-us-east-2.pooler.supabase.com (take the transaction pool host)
+- port: 6543
+- name: postgres
 
 Once configured, use the Makefile commands to create or delete the Supabase database schema:
 
