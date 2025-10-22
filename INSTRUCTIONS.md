@@ -373,13 +373,13 @@ QDRANT__URL=your_qdrant_url_here
 Use the provided Makefile commands to create/delete, index, and manage your Qdrant collections. The ingestion from SQL command will bulk upload all articles from Supabase to Qdrant without using Prefect.
 
 ```bash
-make create-qdrant-collection
-make delete-qdrant-collection
-make create-qdrant-index
+make qdrant-create-collection
+make qdrant-delete-collection
+make qdrant-create-index
 make qdrant-ingest-from-sql
 ```
 
-After bulk uploading data, make sure you run `make create-qdrant-index` to enable HNSW and Optimizers apart from the indexes. These two parameters are disabled during bulk upload for [performance reasons](https://qdrant.tech/documentation/database-tutorials/bulk-upload/).
+After bulk uploading data, make sure you run `make qdrant-create-index` to enable HNSW and Optimizers apart from the indexes. These two parameters are disabled during bulk upload for [performance reasons](https://qdrant.tech/documentation/database-tutorials/bulk-upload/).
 
 ### ⚡ Prefect
 
