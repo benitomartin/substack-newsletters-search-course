@@ -470,15 +470,16 @@ The FastAPI backend exposes a high-performance REST API for searching and queryi
 
 Supported LLM providers:
 
-- **OpenRouter** (default, free tier available): It is configured with auto model selection prioritizing latency. Feel free to change it in this file `src/api/models/provider_models.py` if you want to use a specific model.
+- **OpenRouter** (default, free tier and API key available): It is configured with auto model selection prioritizing latency. Feel free to change it in this file `src/api/models/provider_models.py` if you want to use a specific model.
 - **OpenAI** (bring your own API key)
 - **Hugging Face** (bring your own API key)
 
-Under `src/api/services/providers` you can find these three model providers. You can easily add more providers by following the existing structure. For OpenAI and Hugging Face, you need to set the respective API keys in your `.env` file. The rest of the code does not need to be changed.
+Under `src/api/services/providers` you can find these three model providers. You can easily add more providers by following the existing structure. For all, you need to set the respective API keys in your `.env` file. The rest of the code does not need to be changed.
 
 ```bash
-OPENAI_API_KEY=your_openai_api_key_here
-HUGGING_FACE_API_KEY=your_huggingface_api_key_here
+OPENROUTER__API_KEY=your_openrouter_api_key_here
+OPENAI__API_KEY=your_openai_api_key_here
+HUGGING_FACE__API_KEY=your_huggingface_api_key_here
 ```
 
 To run the FastAPI application locally:
