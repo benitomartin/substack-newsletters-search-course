@@ -470,7 +470,7 @@ The FastAPI backend exposes a high-performance REST API for searching and queryi
 
 Supported LLM providers:
 
-- **OpenRouter** (default, free tier and API key available): It is configured with auto model selection prioritizing latency. Feel free to change it in this file `src/api/models/provider_models.py` if you want to use a specific model.
+- **OpenRouter** (default, free tier available, bring your own API key): It is configured with auto model selection prioritizing latency. Feel free to change it in this file `src/api/models/provider_models.py` if you want to use a specific model.
 - **OpenAI** (bring your own API key)
 - **Hugging Face** (bring your own API key)
 
