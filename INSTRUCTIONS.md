@@ -375,11 +375,11 @@ Use the provided Makefile commands to create/delete, index, and manage your Qdra
 ```bash
 make create-qdrant-collection
 make delete-qdrant-collection
-make create-qdrant-indexes
+make create-qdrant-index
 make qdrant-ingest-from-sql
 ```
 
-After bulk uploading data, make sure you run `make create-qdrant-indexes` to enable HNSW and Optimizers apart from the indexes. These two parameters are disabled during bulk upload for [performance reasons](https://qdrant.tech/documentation/database-tutorials/bulk-upload/).
+After bulk uploading data, make sure you run `make create-qdrant-index` to enable HNSW and Optimizers apart from the indexes. These two parameters are disabled during bulk upload for [performance reasons](https://qdrant.tech/documentation/database-tutorials/bulk-upload/).
 
 ### ⚡ Prefect
 
