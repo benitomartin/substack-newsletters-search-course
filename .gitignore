@@ -213,3 +213,6 @@ src/pipelines/tasks/fetch_archive.py
 src/pipelines/tasks/ingest_archive.py
 src/pipelines/tasks/parse_archive.py
 src/configs/feeds_archive.yaml
+deploy_gradio.sh
+frontend/Dockerfile
+frontend/requirements.txt

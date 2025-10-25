@@ -548,5 +548,13 @@ with gr.Blocks(title="Substack Articles LLM Engine", theme=gr.themes.Soft()) as 
         show_progress=True,
     )
 
+# For local testing
 if __name__ == "__main__":
     demo.launch()
+
+# # For Google Cloud Run deployment
+# if __name__ == "__main__":
+#     demo.launch(
+#         server_name="0.0.0.0",
+#         server_port=int(os.environ.get("PORT", 8080))
+#     )
