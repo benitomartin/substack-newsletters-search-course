@@ -1,6 +1,6 @@
 # Substack Articles Search Engine
 
-![Diagram](static/diagram.png)
+![Diagram](static/app_diagram.png)
 
 <div align="center">
 
