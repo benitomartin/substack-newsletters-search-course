@@ -123,7 +123,7 @@ By the end of this course, you will have a fully functional RAG system and the s
 | 2      | Vector Embeddings & Semantic Search Infrastructure           | [Lesson 2](https://aiechoes.substack.com/p/building-a-substack-articles-search-6d1)        | Qdrant configuration and semantic search                 |
 | 3      | FastAPI Backend & Multi-Provider LLM Support                 | [Lesson 3](https://aiechoes.substack.com/p/building-a-substack-articles-search-9dd)        | FastAPI backend, OpenRouter, OpenAI, Hugging Face        |
 | 4      | Cloud Run Deployment & Gradio UI                             | [Lesson 4](https://aiechoes.substack.com/p/building-a-substack-articles-search-21a)          | Google Cloud Run deployment and Gradio UI                |
-| 5      | Video Application Overview                                                   | Live 29.10.2025                  | Video demo showcasing the entire pipeline                 |
+| 5      | Video Application Overview                                                   | [Lesson 5](https://theneuralmaze.substack.com/p/how-to-build-production-ready-rag)                | Video demo showcasing the entire pipeline                 |
 
 ## 🚀 Getting Started
 
